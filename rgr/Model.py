@@ -106,9 +106,9 @@ class Model:
             cursor.execute('SELECT * FROM public."Weddings"')
             return cursor.fetchall()
         
-    def get_wedding(self):
+    def get_wedding(self, client_id):
         with self.connection.cursor() as cursor:
-            cursor.execute('SELECT * FROM public."Weddings" WHERE client_id=%s', [id])
+            cursor.execute('SELECT * FROM public."Weddings" WHERE client_id=%s', [client_id])
             return cursor.fetchall()
         
     def update_organizator(self, id, name, phone_number, email) -> None:
